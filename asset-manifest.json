@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-littlelemon1/static/css/main.073c9b0a.css",
+    "main.js": "/React-littlelemon1/static/js/main.173b6f20.js",
+    "static/js/787.bc070d19.chunk.js": "/React-littlelemon1/static/js/787.bc070d19.chunk.js",
+    "index.html": "/React-littlelemon1/index.html",
+    "main.073c9b0a.css.map": "/React-littlelemon1/static/css/main.073c9b0a.css.map",
+    "main.173b6f20.js.map": "/React-littlelemon1/static/js/main.173b6f20.js.map",
+    "787.bc070d19.chunk.js.map": "/React-littlelemon1/static/js/787.bc070d19.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.173b6f20.js"
+  ]
+}
