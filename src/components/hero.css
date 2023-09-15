@@ -1,0 +1,91 @@
+/* Style de base */
+.hero {
+  background-color: #495E57;
+  padding: 20px;
+}
+
+.Hero-element {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 10px;
+}
+
+.hero h5,
+.hero p {
+  color: #EDEFEE;
+  font-size: 1.5rem; /* Taille de la police des en-têtes */
+  margin-bottom: 10px; /* Espacement en bas des en-têtes */
+}
+
+.hero h1 {
+  color: #F4CE14;
+  font-size: 1.5rem; /* Taille de la police des en-têtes */
+  margin-bottom: 10px; /* Espacement en bas des en-têtes */
+}
+
+.btn-hero {
+  color: #333333;
+  text-align: justify;
+}
+
+.bouton a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.bouton {
+  border-radius: 8px;
+  background-color: #F4CE14;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+}
+
+/* Partie d'image */
+.hero2 {
+  background-color: aliceblue;
+  border-radius: 8px;
+  margin-top: 25px;
+  margin-left: 250px;
+  max-width: 150px;
+}
+
+/* Réactivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  .Hero-element {
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes au lieu de quatre */
+    grid-gap: 5px; /* Espacement réduit entre les éléments */
+  }
+
+  .bouton {
+    width: 120px; /* Réduire la largeur du bouton */
+  }
+
+  .hero2 {
+    margin-left: 0; /* Annuler le décalage à gauche */
+    margin-top: 15px; /* Réduire la marge supérieure */
+    max-width: 100%; /* Adapter à la largeur de l'écran */
+  }
+}
+
+/* Réactivité pour les écrans plus petits encore */
+@media (max-width: 480px) {
+  .Hero-element {
+    grid-template-columns: repeat(1, 1fr); /* Une colonne pour les écrans très petits */
+  }
+
+  .hero h1 {
+    font-size: 24px; /* Réduire la taille de la police */
+    margin-bottom: 10px; /* Espacement en bas des en-têtes */
+  }
+
+  .bouton {
+    width: 100px; /* Réduire la largeur du bouton */
+  }
+
+  .hero2 {
+    margin-top: 10px; /* Réduire davantage la marge supérieure */
+  }
+}
+

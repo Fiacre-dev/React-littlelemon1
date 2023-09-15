@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Trois colonnes égales */
+  grid-gap: 20px; /* Espacement entre les éléments */
+}
+
+.item {
+  grid-column: span 2; /* Occupe deux colonnes */
+  grid-row: 1; /* Sur la première ligne */
+}

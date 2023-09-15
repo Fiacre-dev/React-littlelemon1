@@ -1,0 +1,68 @@
+/* Style de base */
+.temoignages {
+    background-color: #FCF0F0;
+    padding: 20px; /* Ajouter un espacement intérieur */
+  }
+  
+  .temoignages-personne {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 10px;
+  }
+  
+  .temoignages-personne div {
+    background-color: #ffffff;
+    padding: 20px; /* Ajouter un espacement intérieur */
+    border-radius: 8px;
+  }
+  
+  .temoignages-personne,
+  .temoignages-personne div,
+  .temoignages-personne h4,
+  .temoignages-personne p {
+    color: black; /* Couleur du texte */
+  }
+  
+  .temoignages-personne .content {
+    background-color: #FFFFFF;
+    height: 50%;
+    width: 75%;
+  }
+  
+  /* Réactivité pour les écrans plus petits */
+  @media (max-width: 768px) {
+    .temoignages-personne {
+      grid-template-columns: repeat(2, 1fr); /* Deux colonnes au lieu de quatre */
+    }
+  
+    .temoignages-personne div {
+      padding: 15px; /* Réduire l'espacement intérieur */
+    }
+  
+    .temoignages-personne h4 {
+      font-size: 20px; /* Réduire la taille de la police */
+      margin: 5px 0; /* Ajouter un espacement autour du texte */
+    }
+  
+    .temoignages-personne p {
+      font-size: 16px; /* Réduire la taille de la police */
+      margin: 5px 0; /* Ajouter un espacement autour du texte */
+    }
+  }
+  
+  /* Réactivité pour les écrans plus petits encore */
+  @media (max-width: 480px) {
+    .temoignages-personne {
+      grid-template-columns: repeat(1, 1fr); /* Une colonne pour les écrans très petits */
+    }
+  
+    .temoignages-personne h4 {
+      font-size: 18px; /* Réduire davantage la taille de la police */
+    }
+  
+    .temoignages-personne p {
+      font-size: 14px; /* Réduire davantage la taille de la police */
+    }
+  }
+  

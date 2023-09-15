@@ -1,0 +1,32 @@
+/* Style de base */
+.a-propos-sect {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(10px, auto);
+    grid-gap: 10px;
+  }
+  
+  .a-propos {
+    background-color: #FFFFFF;
+    padding: 20px; /* Ajouter un espacement intérieur */
+    border-radius: 8px;
+  }
+  
+  /* Réactivité pour les écrans plus petits */
+  @media (max-width: 768px) {
+    .a-propos-sect {
+      grid-template-columns: repeat(1, 1fr); /* Une colonne pour les écrans moyens */
+    }
+  
+    .a-propos {
+      padding: 15px; /* Réduire l'espacement intérieur */
+    }
+  }
+  
+  /* Réactivité pour les écrans plus petits encore */
+  @media (max-width: 480px) {
+    .a-propos-sect {
+      grid-template-columns: repeat(1, 1fr); /* Une colonne pour les écrans très petits */
+    }
+  }
+  
