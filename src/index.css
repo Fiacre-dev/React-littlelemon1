@@ -11,13 +11,707 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Trois colonnes égales */
-  grid-gap: 20px; /* Espacement entre les éléments */
+/* styles.css (or your preferred CSS file) */
+
+/* Style the navigation container (nav) */
+nav {
+  padding: 5px; /* Add some padding for spacing */
 }
 
-.item {
-  grid-column: span 2; /* Occupe deux colonnes */
-  grid-row: 1; /* Sur la première ligne */
+/* Style the unordered list (ul) */
+ul {
+  list-style: none; /* Remove default list bullet points */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Display list items horizontally */
 }
+
+/* Style list items (li) */
+li {
+  margin-right: 15px; /* Add margin between list items */
+}
+
+/* Style links within list items */
+li a {
+  text-decoration: none; /* Remove underlines from links */
+  color:#000000; /* Link text color */
+  font-weight: bold; /* Make the links bold */
+}
+/* Add hover effect for links */
+li a:hover {
+  text-decoration:none; /* Underline links on hover */
+}
+/* Style the logo */
+.navbar-brand {
+  width: 250px; /* Définissez la largeur de votre logo */
+  height: 2em; /* Définissez la hauteur de votre logo */
+  background-image: url('/src/Logo.svg'); /* Chemin vers le logo */
+  background-size: contain; /* Réglez la taille du logo selon vos besoins */
+  background-repeat: no-repeat; /* Empêchez la répétition de l'image */
+}
+/* Style de base Hero*/
+.hero {
+  background-color: #495E57;
+  padding: 20px;
+}
+/* Debut part2 */
+
+/* Style de base pour la section hero-propos */
+.hero-propos {
+  height: 35em;
+  background-color: #495E57;
+  padding: 20px;
+}
+
+.Hero-element-propos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 10px;
+}
+
+.hero-propos h5,
+.hero-propos p {
+  color: #EDEFEE;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-propos h1 {
+  color: #F4CE14;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+/* Réactivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  .Hero-element-propos {
+    grid-template-columns: repeat(2, 2fr); /* Une colonne pour les écrans plus petits */
+    grid-gap: 10px; /* Espacement entre les éléments */
+  }
+
+  .hero-propos {
+    position: relative;
+    top: 55em;
+    height: 20rem; /* Hauteur automatique pour s'adapter au contenu */
+    padding: 10px; /* Réduire l'espacement intérieur */
+  }
+
+  .hero-propos h5,
+  .hero-propos p {
+    font-size: 1rem; /* Réduire la taille de la police */
+    margin-bottom: 5px; /* Réduire l'espacement en bas des en-têtes */
+  }
+
+  .hero-propos h1 {
+    font-size: 1.5rem; /* Rétablir la taille de la police */
+  }
+
+  .hero21{
+    width: 50%; /* Ajuster la largeur à 100% de la largeur de leur conteneur */
+    height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect de l'image */
+    margin: 10px auto; /* Centrer horizontalement avec une marge verticale de 10px */
+    position: relative; /* Annuler la position relative */
+    right: auto; /* Annuler le décalage à droite */
+    top: -1em;  /* Annuler le décalage vers le bas */
+  }
+  .hero22 {
+    width: 50%; /* Ajuster la largeur à 100% de la largeur de leur conteneur */
+    height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect de l'image */
+    margin: 10px auto; /* Centrer horizontalement avec une marge verticale de 10px */
+    position: relative; /* Annuler la position relative */
+    right: auto; /* Annuler le décalage à droite */
+    top: -35em; /* Annuler le décalage vers le bas */
+  }
+}
+
+
+/* Réactivité pour les écrans plus petits encore */
+@media (max-width: 480px) {
+  .Hero-element-propos {
+    grid-template-columns: repeat(2, 2fr); /* Une colonne pour les écrans très petits */
+    grid-gap: 10px; /* Espacement entre les éléments */
+  }
+
+  .hero-propos {
+    position: relative;
+    top: 0; /* Annuler le décalage vers le bas */
+    height: auto; /* Hauteur automatique pour s'adapter au contenu */
+    padding: 10px; /* Réduire l'espacement intérieur */
+  }
+
+  .hero-propos h5,
+  .hero-propos p {
+    font-size: 1rem; /* Réduire la taille de la police */
+    margin-bottom: 5px; /* Réduire l'espacement en bas des en-têtes */
+  }
+
+  .hero-propos h1 {
+    font-size: 1.5rem; /* Rétablir la taille de la police */
+  }
+
+  .hero21,
+  .hero22 {
+    width: 100%; /* Ajuster la largeur à 100% de la largeur de leur conteneur */
+    height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect de l'image */
+    margin: 10px auto; /* Centrer horizontalement avec une marge verticale de 10px */
+    position: static; /* Annuler la position relative */
+    right: auto; /* Annuler le décalage à droite */
+    top: auto; /* Annuler le décalage vers le bas */
+  }
+}
+
+/* part2 fin*/
+
+.Hero-element {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 10px;
+}
+
+.hero h5,
+.hero p {
+  color: #EDEFEE;
+  font-size: 1.5rem; /* Taille de la police des en-têtes */
+  margin-bottom: 10px; /* Espacement en bas des en-têtes */
+}
+
+.hero h1 {
+  color: #F4CE14;
+  font-size: 1.5rem; /* Taille de la police des en-têtes */
+  margin-bottom: 10px; /* Espacement en bas des en-têtes */
+}
+
+.btn-hero {
+  color: #333333;
+  text-align: justify;
+}
+
+.bouton a {
+  text-decoration: none;
+  font-weight: bold;
+}
+.bouton a:hover{
+  text-decoration: none;
+}
+
+.bouton {
+  border-radius: 8px;
+  background-color: #F4CE14;
+  text-align: center;
+  width: 150px;
+  height: 40px;
+}
+.hero21 {
+  bottom: 4em;
+  position:relative;
+  right: -10em;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-left: 250px;
+  width: 20em; /* Largeur de la zone d'image */
+  height: 25em; /* Hauteur de la zone d'image */
+  background-image: url('/src/restauranfood.jpg'); /* Chemin vers l'image */
+  background-size: cover; /* Redimensionner l'image pour couvrir toute la zone */
+  background-position: center; /* Centrer l'image */
+  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+}
+.hero22 {
+  bottom: 18.5em;
+  position: relative;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-left: 250px;
+  width: 20em; /* Largeur de la zone d'image */
+  height: 25em; /* Hauteur de la zone d'image */
+  background-image: url('/src/restauranfood.jpg'); /* Chemin vers l'image */
+  background-size: cover; /* Redimensionner l'image pour couvrir toute la zone */
+  background-position: center; /* Centrer l'image */
+  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+}
+
+
+/* Partie d'image */
+
+.hero2 {
+  top: 2.5em;
+  position: relative;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-left: 250px;
+  width: 20em; /* Largeur de la zone d'image */
+  height: 25em; /* Hauteur de la zone d'image */
+  background-image: url('/src/restauranfood.jpg'); /* Chemin vers l'image */
+  background-size: cover; /* Redimensionner l'image pour couvrir toute la zone */
+  background-position: center; /* Centrer l'image */
+  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+}
+
+/* Réactivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  .Hero-element {
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes au lieu de quatre */
+    grid-gap: 5px; /* Espacement réduit entre les éléments */
+  }
+
+  .bouton {
+    width: 120px; /* Réduire la largeur du bouton */
+  }
+
+  .hero2 {
+    margin-left: 0; /* Annuler le décalage à gauche */
+    margin-top: 15px; /* Réduire la marge supérieure */
+    max-width: 100%; /* Adapter à la largeur de l'écran */
+  }
+}
+
+/* Réactivité pour les écrans plus petits encore */
+@media (max-width: 480px) {
+  .Hero-element {
+    grid-template-columns: repeat(1, 1fr); /* Une colonne pour les écrans très petits */
+  }
+
+  .hero h1 {
+    font-size: 24px; /* Réduire la taille de la police */
+    margin-bottom: 10px; /* Espacement en bas des en-têtes */
+  }
+
+  .bouton {
+    width: 100px; /* Réduire la largeur du bouton */
+  }
+
+  .hero2 {
+    margin-top: 10px; /* Réduire davantage la marge supérieure */
+  }
+}
+
+/* Style de base Promotion */
+.promotion{
+  position: relative;
+  height: 35em;
+}
+.promo-title {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 10px;
+  text-align: center; /* Centrer le texte dans les colonnes */
+  position: relative;
+  top: 2em;
+
+}
+
+.promo-title h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.btn {
+  color: #333333;
+  text-align: justify;
+  font-weight: bold;
+}
+.bouton2 a:hover{
+  text-decoration: none;
+}
+
+.bouton2 {
+  border-radius: 8px;
+  background-color: #F4CE14;
+  text-align: center;
+  width:10em;
+  height:2.5em;
+  margin: 0 auto; /* Centrer le bouton horizontalement */
+}
+
+.promo-element {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(150px, auto);
+  grid-gap: 10px;
+  position: relative;
+  bottom: 4em;
+  text-align: center; /* Centrer le contenu dans les colonnes */
+}
+.promo-colonne{
+ background-color: #FFE0E0;
+}
+.promo-colonne h2{
+  color: #000000;
+  position: relative;
+  right: 2.5em;
+ }
+.promo-colonne span{
+  color: #FBB348;
+  position: relative;
+  left: 10em;
+  bottom: 3em;
+ }
+ .promo-colonne p{
+  position: relative;
+  top: -2em;
+  color: #000000;
+ }
+
+.promo-colonne a:hover{
+ text-decoration: none;
+}
+ 
+/* Style de l'image */
+.greek,.bruschetta,.dessert {
+  background-size: cover;
+  background-position: top center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 250px;
+  position: relative;
+  border-radius: 8px;
+}
+
+/* Importation des images */
+.greek {
+  background-image: url('/src/greeksalad.jpg');
+}
+
+.bruschetta {
+  background-image: url('/src/bruchetta.svg');
+}
+
+ .dessert {
+  background-image: url('/src/lemon dessert.jpg');
+}
+
+.promo-element div h2,
+.promo-element div span,
+.promo-element div p {
+  margin: 10px 0;
+}
+
+/* Réactivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  .promo-title {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .bouton2 {
+    border-radius: 8px;
+    background-color: #F4CE14;
+    text-align: center;
+    width:10em;
+    height:2.5em;
+    margin: 0 auto; /* Centrer le bouton horizontalement */
+  }
+
+  .promo-element {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .promo-colonne span{
+    color: #FBB348;
+    position: relative;
+    left: 5em;
+    bottom: 1em;
+   }
+   .promo-colonne h2{
+    font-size: 1em;
+    position: relative;
+    right: 1.5em;
+   }
+}
+
+/* Réactivité pour les écrans plus petits encore */
+@media (max-width: 480px) {
+  .promo-title h2 {
+    font-size: 16px;
+  }
+
+  .bouton2 {
+    width: 120px;
+  }
+
+  .promo-element {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .promo-colonne span{
+    color: #FBB348;
+    position: relative;
+    left: 5em;
+    bottom: 2em;
+   }
+}
+
+/* Style de base Temoignage */
+.temoignages {
+  background-color: #FCF0F0;
+  padding: 20px; /* Ajouter un espacement intérieur */
+}
+
+.temoignages-personne {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 10px;
+}
+
+.temoignages-personne div {
+  background-color: #ffffff;
+  padding: 20px; /* Ajouter un espacement intérieur */
+  border-radius: 8px;
+}
+
+.temoignages-personne .content1 {
+  background-image: url('/src/pers1.png');
+  height: 20%;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+}
+.temoignages-personne .content2 {
+  background-image: url('/src/pers2.png');
+  height: 20%;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+}
+.temoignages-personne .content3 {
+  background-image: url('/src/pers2.png');
+  height: 20%;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+}
+.temoignages-personne .content4{
+  background-image: url('/src/pers1.png');
+  height: 20%;
+  width: 40%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+}
+.content1 ,.content2 ,.content3 ,.content4 ,h4{
+  color: #000000;
+  position: relative;
+  bottom: 4em;
+  text-align: center;
+}
+.content1 ,.content2 ,.content3 ,.content4{
+  bottom: 4em;
+}
+.temoignages h1{
+  color: #000000;
+  text-align: center;
+}
+.content1 ,.content2 ,.content3 ,.content4, p{
+  text-align: center;
+  color: #000000;
+  position: relative;
+  top: 2em;
+}
+
+/* Réactivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  .temoignages{
+    position: relative;
+    bottom: -57em;
+    grid-template-columns: repeat(2, 1fr); /* Deux colonnes au lieu de quatre */
+  }
+
+  .temoignages-personne .content1 {
+    background-image: url('/src/pers1.png');
+    height: 20%;
+    width: 40%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+  }
+  .temoignages-personne .content2 {
+    background-image: url('/src/pers2.png');
+    height: 20%;
+    width: 40%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+  }
+  .temoignages-personne .content3 {
+    background-image: url('/src/pers2.png');
+    height: 20%;
+    width: 40%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+  }
+  .temoignages-personne .content4{
+    background-image: url('/src/pers1.png');
+    height: 20%;
+    width: 40%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+  }
+  .content1 ,.content2 ,.content3 ,.content4 ,h4{
+    color: #000000;
+    position: relative;
+    bottom: 4em;
+    text-align: center;
+  }
+  .content1 ,.content2 ,.content3 ,.content4{
+    bottom: 4em;
+  }
+  .temoignages h1{
+    color: #000000;
+    text-align: center;
+  }
+  .content1 ,.content2 ,.content3 ,.content4, p{
+    text-align: center;
+    color: #000000;
+    position: relative;
+    top: 2em;
+  }
+}
+
+/* Réactivité pour les écrans plus petits encore */
+@media (max-width: 480px) {
+  .temoignages-personne {
+    grid-template-columns: repeat(4, 1fr); /* Une colonne pour les écrans très petits */
+  }
+
+  .temoignages-personne h4 {
+    font-size: 18px; /* Réduire davantage la taille de la police */
+  }
+
+  .temoignages-personne p {
+    font-size: 14px; /* Réduire davantage la taille de la police */
+  }
+}
+/* Style à propos */
+.a-propos-sect {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(10px, auto);
+  grid-gap: 10px;
+}
+
+.a-propos {
+  background-color: #FFFFFF;
+  padding: 20px; /* Ajouter un espacement intérieur */
+  border-radius: 8px;
+}
+.a-propos-sect .part{
+  background-color: #495E57;
+}
+
+/* Réactivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  .a-propos-sect {
+    grid-template-columns: repeat(2, 1fr); /* Une colonne pour les écrans moyens */
+  }
+
+  .a-propos {
+    padding: 15px; /* Réduire l'espacement intérieur */
+  }
+}
+
+/* Réactivité pour les écrans plus petits encore */
+@media (max-width: 480px) {
+  .a-propos-sect {
+    grid-template-columns: repeat(2, 1fr); /* Une colonne pour les écrans très petits */
+  }
+}
+/* footer.css */
+
+.sect-footer {
+  position: relative;
+  background-color: #FFFFFF; /* Couleur de fond du pied de page */
+  color: #000000; /* Couleur du texte */
+  padding: 20px; /* Espacement intérieur du pied de page */
+}
+
+.footer-element {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Quatre colonnes pour les sections */
+  grid-gap: 20px; /* Espacement entre les sections */
+}
+
+.footer-img {
+  background-image: url('/src/restaurant.jpg');
+  height: 80%;
+  width: 80%;
+  border-top-right-radius: 9px;  border-bottom-left-radius: 9px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; /* Ajuster la taille de l'image pour couvrir toute la div */
+}
+
+.footer-nav h1,
+.footer-contact h1,
+.footer-sociaux h1 {
+  font-size: 1.5rem; /* Taille de la police des en-têtes */
+  margin-bottom: 10px; /* Espacement en bas des en-têtes */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 5px; /* Espacement entre les éléments de la liste */
+}
+
+/* Pour afficher tous les liens en colonne */
+.footer-nav ul,
+.footer-contact ul,
+.footer-sociaux ul {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: white; /* Couleur des liens */
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline; /* Effet de soulignement au survol des liens */
+}
+/* Responsive footer.css */
+/* Réactivité pour les écrans plus petits */
+@media (max-width: 768px) {
+  .footer-element {
+    grid-template-columns: repeat(4, 1fr); /* Deux colonnes au lieu de quatre */
+  }
+}
+.sect-footer {
+  background-color: #FFFFFF; /* Couleur de fond du pied de page */
+  color: #000000; /* Couleur du texte */
+  padding: 20px; /* Espacement intérieur du pied de page */
+}
+
+.footer-element {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Quatre colonnes pour les sections */
+  grid-gap: 20px; /* Espacement entre les sections */
+}
+
+/* Réactivité pour les écrans encore plus petits */
+@media (max-width: 480px) {
+  .footer-element {
+    grid-template-columns: repeat(4, 1fr); /* Une colonne pour les écrans très petits */
+  }
+
+  .footer-img {
+    display: none; /* Masquer l'image sur les écrans très petits */
+  }
+}
+
+

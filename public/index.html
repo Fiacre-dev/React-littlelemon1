@@ -15,30 +15,175 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <link rel="stylesheet" href="/src/index.css">
+    <!-- Inclure Bootstrap CSS -->
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>React App</title>
   </head>
   <body>
+    <main>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Accueil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/a-propos">À Propos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/menu">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/reservations">Réservations</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/commander-en-ligne">Commander en Ligne</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/se-connecter">Se Connecter</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!--Section Héros-->
+       <section class="hero">
+        <div class='Hero-element'>
+          <div>
+            <h1>Little lemon</h1>
+            <h5>Cotonou</h5>
+            <p>Le restaurant Little Lemon vous propose une cuisine variée et fraîche, allant des délicieuses salades méditerranéennes aux pizzas authentiques et aux desserts gourmands. Chaque plat est préparé avec soin et des ingrédients de qualité, pour une expérience culinaire inoubliable. Venez déguster nos saveurs uniques chez Little Lemon et laissez-vous séduire par la fraîcheur de notre cuisine.</p>
+         <div class='bouton'>
+            <a href='#' class='btn-hero'>Réserver une table</a>
+         </div>
+          </div>
+          <div class='hero2'>
+          </div>
+        </div>
+      </section>
+      <section class="promotion">
+        <div class="promo-title">
+          <h2>Promotions</h2>
+          <div class="bouton2">
+            <a href="#" class="btn">Commander en ligne</a>
+          </div>
+        </div>
+        <div class="promo-element">
+          <div class="promo-colonne">
+            <div class="greek"></div>
+            <h2>Salade</h2>
+            <span >$12.99</span>
+            <p>Une salade méditerranéenne colorée, mélange de tomates, concombres, olives et féta, relevée d'une vinaigrette citronnée, offrant une fraîcheur irrésistible.</p>
+            <a href="#" class="btn">Commander une livraison</a>
+          </div>
+          <div class="promo-colonne">
+            <div class="bruschetta"></div>
+            <h2>Bruschetta</h2>
+            <span>$5.99</span>
+            <p>Une entrée italienne classique, du pain grillé frotté à l'ail, garni de tomates fraîches, basilic, et une touche d'huile d'olive pour une explosion de saveurs</p>
+            <a href="#" class="btn">Commander une livraison</a>
+          </div>
+          <div class="promo-colonne">
+            <div class="dessert" ></div>
+            <h2>Dessert citron</h2>
+            <span>$3.99</span>
+            <p>Un délice sucré, une croûte de biscuit beurré soutenant une crème onctueuse au citron, un équilibre parfait d'acidité et de douceur.</p>
+            <a href="#" class="btn">Commander une livraison</a>
+          </div>
+        </div>
+      </section>
+      <!--Section Témoignages-->
+      <section class="temoignages">
+        <h1>Les Avis Étoilés de Nos Clients</h1>
+        <div class='temoignages-personne'>
+          <div class='content1'>
+            <h4>Deborah </h4>
+            <p>Le Little Lemon est mon endroit préféré pour savourer des plats délicieux.</p>
+          </div>
+          <div class='content2'>
+            <h4>Deo Gratias</h4>
+            <p> La bruschetta est une véritable explosion de saveurs.</p>
+          </div>
+          <div class='content3'>
+            <h4>Merveil</h4>
+            <p>Le dessert au citron  C'est le mélange parfait de douceur et d'acidité.</p>
+          </div>
+          <div  class='content4'>
+            <h4>Houéfa</h4>
+            <p> Le service est exceptionnel, la nourriture est délicieuse</p>
+          </div>
+        </div>
+        <!--Ajoutez plus de témoignages au besoin-->
+      </section>
+      <!-- Section À Propos -->
+      <section class="hero-propos">
+        <div class='Hero-element-propos'>
+          <div>
+            <h1>Little lemon</h1>
+            <h5>Cotonou</h5>
+            <p>Le restaurant Little Lemon vous propose une cuisine variée et fraîche, allant des délicieuses salades méditerranéennes aux pizzas authentiques et aux desserts gourmands.</p>
+          </div>
+          <div>
+            <div class='hero21'></div>
+            <div class='hero22'></div>
+          </div>
+        </div>
+      </section>
+      <footer class='sect-footer'>
+        <div class='footer-element'>
+          <div class='footer-img'>
+           </div>
+          <div class='footer-nav'>
+            <h1>Doormat</h1>
+            <ul>
+              <li><a href="#">Navigation</a></li>
+              <li><a href="#">Accueil</a></li>
+              <li><a href="#">A propos</a></li>
+              <li><a href="#">Menu</a></li>
+              <li><a href="#">Reservation</a></li>
+              <li><a href="#">Commander en ligne</a></li>
+              <li><a href="#">Se dconnecter</a></li>
+            </ul>
+          </div>
+          <div class='footer-contact'>
+            <h1>Contact</h1>
+            <ul>
+              <li>Adresse</li>
+              <li>Numéro de téléphone</li>
+              <li>Email</li>
+            </ul>
+          </div>
+          <div class='footer-sociaux'>
+            <h1>Réseaux sociaux</h1>
+            <ul>
+              <li>
+                <a href="https://www.facebook.com/votrepage" target="_blank" rel="noopener noreferrer">Facebook</a>
+              </li>
+              <li>
+                <a href="https://twitter.com/votrepage" target="_blank" rel="noopener noreferrer">Twitter</a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/votrepage" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- Inclure Bootstrap JavaScript et jQuery (optionnel) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-    
   </body>
 </html>
