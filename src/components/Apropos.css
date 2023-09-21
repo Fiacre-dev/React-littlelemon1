@@ -1,0 +1,102 @@
+/* Style de base pour la section hero-propos */
+.hero-propos {
+    height: 35em;
+    background-color: #495E57;
+    padding: 20px;
+  }
+
+  .Hero-element-propos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(150px, auto);
+    grid-gap: 10px;
+  }
+
+  .hero-propos h5,
+  .hero-propos p {
+    color: #EDEFEE;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-propos h1 {
+    color: #F4CE14;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  /* Réactivité pour les écrans plus petits */
+  @media (max-width: 768px) {
+    .Hero-element-propos {
+      grid-template-columns: repeat(2, 2fr); /* Une colonne pour les écrans plus petits */
+      grid-gap: 10px; /* Espacement entre les éléments */
+    }
+
+    .hero-propos {
+      position: relative;
+      top: 55em;
+      height: 20rem; /* Hauteur automatique pour s'adapter au contenu */
+      padding: 10px; /* Réduire l'espacement intérieur */
+    }
+
+    .hero-propos h5,
+    .hero-propos p {
+      font-size: 1rem; /* Réduire la taille de la police */
+      margin-bottom: 5px; /* Réduire l'espacement en bas des en-têtes */
+    }
+
+    .hero-propos h1 {
+      font-size: 1.5rem; /* Rétablir la taille de la police */
+    }
+
+    .hero21{
+      width: 50%; /* Ajuster la largeur à 100% de la largeur de leur conteneur */
+      height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect de l'image */
+      margin: 10px auto; /* Centrer horizontalement avec une marge verticale de 10px */
+      position: relative; /* Annuler la position relative */
+      right: auto; /* Annuler le décalage à droite */
+      top: -1em;  /* Annuler le décalage vers le bas */
+    }
+    .hero22 {
+      width: 50%; /* Ajuster la largeur à 100% de la largeur de leur conteneur */
+      height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect de l'image */
+      margin: 10px auto; /* Centrer horizontalement avec une marge verticale de 10px */
+      position: relative; /* Annuler la position relative */
+      right: auto; /* Annuler le décalage à droite */
+      top: -35em; /* Annuler le décalage vers le bas */
+    }
+  }
+
+  /* Réactivité pour les écrans plus petits encore */
+  @media (max-width: 480px) {
+    .Hero-element-propos {
+      grid-template-columns: repeat(2, 2fr); /* Une colonne pour les écrans très petits */
+      grid-gap: 10px; /* Espacement entre les éléments */
+    }
+
+    .hero-propos {
+      position: relative;
+      top: 0; /* Annuler le décalage vers le bas */
+      height: auto; /* Hauteur automatique pour s'adapter au contenu */
+      padding: 10px; /* Réduire l'espacement intérieur */
+    }
+  
+    .hero-propos h5,
+    .hero-propos p {
+      font-size: 1rem; /* Réduire la taille de la police */
+      margin-bottom: 5px; /* Réduire l'espacement en bas des en-têtes */
+    }
+  
+    .hero-propos h1 {
+      font-size: 1.5rem; /* Rétablir la taille de la police */
+    }
+  
+    .hero21,
+    .hero22 {
+      width: 100%; /* Ajuster la largeur à 100% de la largeur de leur conteneur */
+      height: auto; /* Hauteur automatique pour maintenir le ratio d'aspect de l'image */
+      margin: 10px auto; /* Centrer horizontalement avec une marge verticale de 10px */
+      position: static; /* Annuler la position relative */
+      right: auto; /* Annuler le décalage à droite */
+      top: auto; /* Annuler le décalage vers le bas */
+    }
+  }
