@@ -1,102 +1,74 @@
 import React, { useState } from 'react';
 
-function BookingForm({ availableTimes, setAvailableTimes }) {
+function BookingForm() {
+  // Définissez les états pour chaque champ du formulaire
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
+  const [time, setTime] = useState('17:00'); // Définissez une valeur par défaut
   const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState('Anniversaire');
+  const [occasion, setOccasion] = useState('Birthday'); // Définissez une valeur par défaut
 
-  function BookingForm({ dispatch }) {
-    const [date, setDate] = useState('');
-  
-    // Gestionnaire d'événements pour le changement de date
-    const handleDateChange = (e) => {
-      const newDate = e.target.value;
-      setDate(newDate);
-  
-      // Envoyez une action pour mettre à jour les horaires disponibles avec la nouvelle date
-      dispatch({ type: 'UPDATE_TIMES', date: newDate });
-    };
-  
-    // ... Le reste de votre code du formulaire reste inchangé
-  }
-    function handleSubmit(e){
-        e.preventDefault();
-        // Ajoutez ici la logique de validation des données du formulaire
-        if(!date || !time || !guests || !occasion)
-        {
-            alert('veuillez remplir tous les champs du formulaire.');
-            return;
-        }
-        // Préparez les données à envoyer à l'API (ou à traiter de toute autre manière)
-        const formData = {
-            date,
-            time,
-            guests,
-            occasion,
-        };
-        // Ici, vous pouvez ajouter le code pour envoyer les données à une API
-        // Par exemple, en utilisant la fonction fetch() ou une bibliothèque de requêtes HTTP comme axios
-        // Assurez-vous d'ajouter la gestion des réponses de l'API et de gérer les erreurs si nécessaire
+  // Créez un état pour stocker les horaires disponibles
+  const [availableTimes, setAvailableTimes] = useState([
+    '17:00',
+    '18:00',
+    '19:00',
+    '20:00',
+    '21:00',
+    '22:00',
+  ]);
 
-        // Après une soumission réussie, vous pouvez rediriger l'utilisateur vers une autre page
-        // Par exemple, en utilisant React Router
-        // history.push('/confirmation'); // Redirigez vers la page de confirmation
+  // Gérez les changements de date
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+  };
 
-        // Réinitialisez le formulaire (effacez les valeurs des champs)
-            setDate('');
-            setTime('');
-            setGuests(1);
-            setOccasion('Anniversaire');
+  // Gérez les changements d'heure
+  const handleTimeChange = (e) => {
+    setTime(e.target.value);
+  };
 
-        // Affichez un message de confirmation à l'utilisateur
-        alert('Votre réservation a été soumise avec succès. Merci !');
-    }
+  // Gérez les changements du nombre d'invités
+  const handleGuestsChange = (e) => {
+    setGuests(e.target.value);
+  };
+
+  // Gérez les changements de l'occasion
+  const handleOccasionChange = (e) => {
+    setOccasion(e.target.value);
+  };
+
+  // Gérez la soumission du formulaire
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Effectuez les actions nécessaires lors de la soumission du formulaire
+    // Par exemple, vous pouvez envoyer les données à une API ici
+    // Puis réinitialisez les champs du formulaire ou effectuez d'autres actions
+  };
+
   return (
-    <form 
-    style={{ display: 'grid', maxWidth: '200px', gap: '20px' }}
-    onSubmit={handleSubmit}
-    >
-      <label htmlFor="res-date">Choisir une date</label>
-      <input
-       type="date"
-       id="res-date"
-       value={date}
-       onChange={(e) => setDate(e.target.value)}
-     />
-      <label htmlFor="res-time">Choisissez l'heure</label>
-      <select
-      id="res-time"
-      value={time}
-      onChange={(e) => setTime(e.target.value)}
-      >
-        {
-            availableTimes.map((option) =>(
-                <option key={option} value={option}>
-                    {option}
-                </option>
-            ))}
+    <form style={{ display: 'grid', maxWidth: '200px', gap: '20px' }} onSubmit={handleSubmit}>
+      <label htmlFor="res-date">Choose date</label>
+      <input type="date" id="res-date" value={date} onChange={handleDateChange} />
+
+      <label htmlFor="res-time">Choose time</label>
+      <select id="res-time" value={time} onChange={handleTimeChange}>
+        {availableTimes.map((timeOption) => (
+          <option key={timeOption} value={timeOption}>
+            {timeOption}
+          </option>
+        ))}
       </select>
-      <label htmlFor="guests">Nombre d'invités</label>
-      <input
-        type="number"
-        placeholder="1"
-        min="1"
-        max="10"
-        id="guests"
-        value={guests}
-        onChange={(e) => setGuests(e.target.value)} 
-      />
+
+      <label htmlFor="guests">Number of guests</label>
+      <input type="number" placeholder="1" min="1" max="10" id="guests" value={guests} onChange={handleGuestsChange} />
+
       <label htmlFor="occasion">Occasion</label>
-      <select 
-        id="occasion"
-        value={occasion}
-        onChange={(e) => setOccasion(e.target.value)}
-      >
-        <option>Anniversaire</option>
-        <option>Fête d'anniversaire</option>
+      <select id="occasion" value={occasion} onChange={handleOccasionChange}>
+        <option value="Birthday">Birthday</option>
+        <option value="Anniversary">Anniversary</option>
       </select>
-      <input type="submit" value="Faites votre réservation" />
+
+      <input type="submit" value="Make Your reservation" />
     </form>
   );
 }
