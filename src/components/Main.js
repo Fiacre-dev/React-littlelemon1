@@ -1,5 +1,6 @@
+import React, { useReducer} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BrowserRouter as Routes, Route, Link } from 'react-router-dom';
-import React, { useReducer, useEffect } from 'react';
 import HomePage from '../components/HomePage';
 import Apropos from '../components/Apropos';
 import Menu from '../components/Menu';
@@ -8,104 +9,90 @@ import BookingForm from '../components/BookingForm';
 import CommanderEnLigne from '../components/CommanderEnLigne';
 import SeConnecter from '../components/SeConnecter';
 
+// Étape 2 : Créez la fonction updateTimes
+const updateTimes = (selectedDate) => {
+  // Utilisez la fonction fetchAPI de l'API pour obtenir les horaires disponibles pour la date sélectionnée
+  const availableTimesForSelectedDate = fetchAPI(selectedDate);
 
-function mainReducer(state, action) {
+  // Mettez à jour l'état availableTimes avec les horaires disponibles pour la date sélectionnée
+  dispatch({ type: "UPDATE_TIMES", payload: availableTimesForSelectedDate });
+};
+// Étape 2 : Créez la fonction initializeTimes
+const initializeTimes = () => {
+  // Créez un objet Date pour représenter la date d'aujourd'hui
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}-${(today.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${today.getDate().toString().padStart(2, "0")}`;
+
+  // Utilisez la fonction fetchAPI de l'API pour obtenir les horaires disponibles
+  const availableTimesForToday = fetchAPI(formattedDate);
+
+  // Mettez à jour l'état availableTimes avec les horaires disponibles
+  dispatch({ type: "INITIALIZE_TIMES", payload: availableTimesForToday });
+
+};
+
+// Étape 2 : Créez un reducer pour availableTimes
+const availableTimesReducer = (state, action) => {
   switch (action.type) {
-    case 'UPDATE_TIMES':
-      // Ici, vous pouvez mettre à jour les horaires disponibles en fonction de la date
-      // Pour l'instant, nous conservons les mêmes horaires, vous pouvez les changer ici
-      return state;
+    // Vous pouvez ajouter d'autres types d'action ici pour gérer les changements d'état
     default:
       return state;
   }
-}
-export async function fetchData(date) {
-  try {
-    const response = await fetch(`/api/availability?date=${date}`);
-    if (!response.ok) {
-      throw new Error('Échec de la requête à l\'API');
-    }
-    const data = await response.json();
-    return { success: true, data };
-  } catch (error) {
-    console.error('Erreur lors de la récupération des horaires disponibles :', error);
-    return { success: false, error: error.message };
-  }
-}
-function initializeTimes() {
-  // Create the initial state for availableTimes here
-  const initialTimes = []; // Initialize with an empty array or any initial data you need
-  return initialTimes;
-}
+};
 
 function Main() {
-  const initialTimes = []; // Initialisez avec un tableau vide
+  // Étape 1 : Transférez l'état jusqu'au composant Main
+  // Étape 2 : Changez availableTimes en un reducer
+  const [availableTimes, dispatch] = useReducer(
+    availableTimesReducer,
+    initializeTimes() // Initialisez les horaires disponibles
+  );
 
-  const [availableTimes, dispatch] = useReducer(mainReducer, initialTimes);
+  // Étape 2 : Mettez à jour les horaires disponibles en fonction de la date sélectionnée
+  const handleDateChange = (date) => {
+    const newTimes = updateTimes(date);
+    dispatch({ type: 'update', newTimes }); // Dispatchez l'action de mise à jour
+  };
+  const navigate = useNavigate();
 
-  // Fonction pour récupérer les horaires disponibles pour la date du jour
-  const initializeTimes = async () => {
-    try {
-      const today = new Date(); // Obtenez la date du jour
-      const formattedDate = today.toISOString().split('T')[0]; // Formatage au format 'AAAA-MM-JJ'
+  const submitForm = (formData) => {
+    // Soumettez les données du formulaire à l'API submitAPI
+    const isBookingSuccessful = submitAPI(formData);
 
-      // Récupérez les horaires disponibles pour aujourd'hui depuis l'API en utilisant la fonction fetchData
-      const response = await fetchData(formattedDate); // Assurez-vous d'avoir la fonction fetchData définie
-
-      if (response.success) {
-        // Mettez à jour les horaires disponibles dans l'état
-        dispatch({ type: 'UPDATE_TIMES', times: response.data });
-      } else {
-        // Gérez l'erreur de l'API ici
-        console.error('Échec de la récupération des horaires disponibles :', response.error);
-      }
-    } catch (error) {
-      console.error('Erreur lors de la récupération des horaires disponibles :', error);
+    if (isBookingSuccessful) {
+      // Si la réservation a réussi, naviguez vers la page de confirmation
+      navigate('/confirmation');
     }
   };
-
-  // Fonction pour récupérer les horaires disponibles en fonction de la date sélectionnée
-  const updateTimes = async (selectedDate) => {
-    try {
-      // Récupérez les horaires disponibles pour la date sélectionnée depuis l'API en utilisant la fonction fetchData
-      const response = await fetchData(selectedDate);
-
-      if (response.success) {
-        // Mettez à jour les horaires disponibles dans l'état
-        dispatch({ type: 'UPDATE_TIMES', times: response.data });
-      } else {
-        // Gérez l'erreur de l'API ici
-        console.error('Échec de la récupération des horaires disponibles :', response.error);
-      }
-    } catch (error) {
-      console.error('Erreur lors de la récupération des horaires disponibles :', error);
-    }
-  };
-
-  // Appelez initializeTimes lorsque le composant est monté pour récupérer les horaires du jour
-  useEffect(() => {
-    initializeTimes();
-  }, []);
-
-   return(
+  return (
     <div>
-    <nav className='nav'>
-     <Link to="/" className='nav-item'>Accueil</Link>
-     <Link to="/Aprops" className='nav-item'>A propos</Link>
-     <Link to="/Menu" className='nav-item'>Menu</Link>
-     <Link to="/Commanderligne" className='nav-item'>Commander en ligne</Link>
-     <Link to="/Seconnecter" className='nav-item'>Se connecter</Link>
-    </nav>
-    <Routes>
-    <Route path="/"element={<HomePage />} />
-    <Route path="/apropos" element={<Apropos />} />
-    <Route path="/menu" element={<Menu />} />
-    <Route path="/bookingpage" element={<BookingPage />} />
-    <Route path="/bookingform" element={<BookingForm />} />
-    <Route path="/commanderligne" element={<CommanderEnLigne />} />
-    <Route path="/SeConnecter" element={<SeConnecter />} />
-    </Routes>
-    <BookingForm availableTimes={availableTimes} setAvailableTimes={setAvailableTimes} />
-</div>
-   );
-}export default Main;
+      <nav className='nav'>
+        <Link to="/" className='nav-item'>Accueil</Link>
+        <Link to="/apropos" className='nav-item'>A propos</Link>
+        <Link to="/menu" className='nav-item'>Menu</Link>
+        <Link to="/Commanderligne" className='nav-item'>Commander en ligne</Link>
+        <Link to="/Seconnecter" className='nav-item'>Se connecter</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/apropos" element={<Apropos />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/bookingpage" element={<BookingPage />} />
+        <Route path="/bookingform" element={<BookingForm availableTimes={availableTimes} dispatch={dispatch} />} />
+        <Route path="/commanderligne" element={<CommanderEnLigne />} />
+        <Route path="/SeConnecter" element={<SeConnecter />} />
+      </Routes>
+      <h1>Réservation de table Little Lemon</h1>
+       {/* Étape 1 : Passez l'état et les fonctions de changement d'état en tant que props */}
+       <BookingForm
+        availableTimes={availableTimes}
+        onDateChange={handleDateChange} // Passez la fonction de changement de date
+        submitForm={submitForm}
+      />
+    </div>
+  );
+}
+
+export default Main;
